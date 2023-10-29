@@ -8,8 +8,8 @@ def solve():
         if len(t) - t.index(i) < -1 + len(s):
             return False
         if s[s_pointer] == i:
-            sp += 1
-        if sp == len(s):
+            s_pointer += 1
+        if s_pointer == len(s):
             return True
     print(i)
     return False
