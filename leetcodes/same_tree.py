@@ -53,5 +53,4 @@ for i in [1, 4, 7, 2, 6, 3, 1, 3, 3, 3]: main_tree.insert(i)
 second_tree = tree(5)
 for i in [1, 4, 7, 2, 6, 3, 1, 3, 3, 3]: second_tree.insert(i)
 
-
 print(main_tree.check_same_tree(second_tree))
