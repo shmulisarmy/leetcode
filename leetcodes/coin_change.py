@@ -1,7 +1,7 @@
 """dynamic programming solution that has a time complexity of o(n*n) and memory of o(n)"""
-coins = [1,3,4,5]
+coins = [1,3,7,4,5]
 
-change = 7
+change = 20
 
 coins_needed = dict()
 

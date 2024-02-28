@@ -16,6 +16,6 @@ for  num in numbers:
     if num in numbers_seen: continue
     print(f'sequence from {num} goes all the way to {num + next_number(num) -1}')
 
-#time colmexity is log(n) 
-# #becuase whenever a recursion is called it puts that the bigger number is numbers seen so it gets skiped 
-# #(and that also deals with duplicates)
+#time colmexity is o(n) 
+#becuase whenever a recursion is called it puts that the bigger number is numbers seen so it gets skiped 
+#(and that also deals with duplicates)

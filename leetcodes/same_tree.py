@@ -43,10 +43,6 @@ class tree:
             
         return True
         
-        
-        
-
-
 main_tree = tree(5)
 for i in [1, 4, 7, 2, 6, 3, 1, 3, 3, 3]: main_tree.insert(i)
 
