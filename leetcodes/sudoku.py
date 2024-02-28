@@ -1,43 +1,46 @@
-import time, copy
+""""takes in any sudoku board and solves it if posible
+dynamic proggramming, runs in 10 to the eighty first"""
 
-def valid(row, col, num, board):
+
+import time
+
+def print_board() -> None:
+    print()
+    for row in board:
+        print(*row, sep= ' ')
+
+
+def valid(row: int, col: int, num):
     for i in range(9):
-        if board[row][i] == num or board[i][col] == num:
+        if board[i][col] == num or board[row][i] == num:
             return False
-        
-    newrow = (row//3)*3
-    newcol = (col//3)*3
+    row_rounded_down = row - row%3
+    col_rounded_down = col - col%3
 
-    for i in range(3):
-        for j in range(3):
-            if board[newrow + i][newcol + j] == num:
+    for row in range(row_rounded_down, row_rounded_down + 3):
+        for col in range(col_rounded_down, col_rounded_down + 3):
+            if board[row][col] == num:
                 return False
-            
     return True
 
+def solve():
+    #show the algorithm solve the board step by step
+    time.sleep(.04)
+    print_board()
 
-def solve(board):
     for row in range(9):
         for col in range(9):
-            if board[row][col] == 0:
-                for num in range(1, 10):
-                    if valid(row, col, num, board):
-                        board[row][col] = num
-                        if solve(board):
-                            return True
-                        board[row][col] = 0
-                return False
+            if board[row][col]:
+                continue
+            for num in range(1, 10):
+                if not valid(row, col, num):
+                    continue
+                board[row][col] = num
+                if solve():
+                    return True
+                board[row][col] = 0
+            return False    
     return True
 
-
-board1 = [[0] * 9 for i in range(9)]
-
-for row in board1:
-    print(*row, sep = ' ')
-t = time.time()
-solve(board1)
-print(time.time() - t)
-
-for row in board1:
-    print(*row, sep = ' ')
-
+board = [[0 for _ in range(9)]for _ in range(9)]
+solve()
