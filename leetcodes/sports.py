@@ -75,7 +75,7 @@ class ScheduleMaker:
 
         return False
     
-    def displaySchedule(self, rounds: int):
+    def _displaySchedule(self, rounds: int):
         for round in range(1, rounds+1):
             print("-------"*3, "round", round, "-------"*3)
             for team in self.teams:
@@ -105,7 +105,7 @@ class ScheduleMaker:
         self.inAction = False
 
 
-        self.displaySchedule(roundsCanPlay)
+        self._displaySchedule(roundsCanPlay)
         return f"{roundsCanPlay} rounds can be played"
 
 
